@@ -1,13 +1,29 @@
 ActsAsParam
 ===========
 
-Introduction goes here.
-
-
 Example
 =======
 
-Example goes here.
+// In you model
+class Product
+  acts_as_param :name, :serial
+end
+
+// How To Use
+product = Product.create(:name => 'name',:serial => 'serial'}
+product.to_param == 'name'
+
+product = Product.create(:name => nil,:serial => 'serial'}
+product.to_param == 'serial'
+
+product = Product.create(:name => nil,:serial => nil}
+product.to_param == product.id
+
+product.find_by_param('serial') # find by product's serial
+product.find_by_param('name')   # find by product's name
+product.find_by_param(2)        # find by Product's primary key
+
+product.find_by_param!('serial') # raise ActiveRecord::RecordNotFound exception if not found
 
 
-Copyright (c) 2010 [name of plugin creator], released under the MIT license
+Copyright (c) 2010 Jinzhu / wosmvp@gmail.com, released under the MIT license
