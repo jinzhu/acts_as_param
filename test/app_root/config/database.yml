@@ -1,0 +1,25 @@
+in_memory:
+  adapter: sqlite3
+  database: ":memory:"
+  verbosity: quiet
+
+sqlite:
+  adapter: sqlite
+  dbfile: newplugin.sqlite.db
+
+sqlite3:
+  adapter: sqlite3
+  dbfile: newplugin.sqlite3.db
+
+postgresql:
+  adapter: postgresql
+  username: postgres
+  password: postgres
+  database: newplugin
+
+mysql:
+  adapter: mysql
+  host: localhost
+  username: root
+  password:
+  database: newplugin
