@@ -41,7 +41,7 @@ module ActiveRecord
         def to_param
           self.class._acts_as_param_fields.map do |field|
             value = self.send(field.to_sym)
-            return value if value.present?
+            return value.to_s if value.present?
           end
         end
       end
